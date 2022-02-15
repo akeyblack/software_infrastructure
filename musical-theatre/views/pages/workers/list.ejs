@@ -1,0 +1,35 @@
+ <h1 class="display-4">Workers
+   <a class="btn btn-primary ms-auto" href="/workers/add">Add Worker</a>
+ </h1>
+ <table class="table table-striped">
+   <thead>
+     <tr>
+       <th>#</th>
+       <th>Fullname</th>
+       <th>Age</th>
+       <th>Sex</th>
+       <th>Address</th>
+       <th>Phone number</th>
+       <th>Info</th>
+       <th></th>
+     </tr>
+   </thead>
+   <tbody>
+     <% workers.forEach(worker => { %>
+        <tr>
+          <td><%= worker.id %></td>
+          <td><%= worker.fullname %></td>
+          <td><%= worker.age %></td>
+          <td><%= worker.gender %></td>
+          <td><%= worker.address %></td>
+          <td><%= worker.phoneNumber %></td>
+          <td><%= worker.info %></td>
+          <td>
+            <form class="d-inline" action="/workers/delete/<%= worker.id %>" method="post">
+              <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+          </td>
+        </tr>
+     <%}) %>
+   </tbody>
+ </table>

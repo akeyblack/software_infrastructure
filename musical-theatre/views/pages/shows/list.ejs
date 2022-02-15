@@ -1,0 +1,31 @@
+<h1 class="display-4">Shows
+  <a class="btn btn-primary ms-auto" href="/shows/add">Add Show</a>
+</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Genre</th>
+      <th>Duration</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% shows.forEach(show => { %>
+       <tr>
+         <td><%= show.id %></td>
+         <td><%= show.name %></td>
+         <td><%= show.genre.name %></td>
+         <td><%= show.duration %></td>
+         <td><%= show.description %></td>
+         <td>
+          <form class="d-inline" action="/shows/delete/<%= show.id %>" method="post">
+            <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+        </td>
+       </tr>
+    <%}) %>
+  </tbody>
+</table>
